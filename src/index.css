@@ -334,23 +334,7 @@ input:focus {
     color: #fff;
     font-size:20px;
     border: 0;
-    padding: 5px 30px;
+    padding: 5px 30px;  
     border-radius: 20px;
-}
-
-.form-group input{
-    padding:20px 0 20px 5px;
-    border: none;
-    width: 750px;
-    overflow: hidden;
-    outline: none;
-}
-
-
-.form-group{
-    position: relative;
-    width: 70vw;
-    border: 2px solid #8f8d8d;
-    border-radius: 10px;
 }
 

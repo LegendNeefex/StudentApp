@@ -1,7 +1,7 @@
 function  MainButton({children, buttonType,buttonClass, isDisabled}) {
     return (
-      <button type={buttonType} disabled={isDisabled} className={`btn ${buttonClass}`}>
-          {children}
+      <button type={buttonType} disabled={isDisabled} className={`btn-disabled ${buttonClass}`}>
+      {children}
       </button>
     )
 }

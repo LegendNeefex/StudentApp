@@ -51,7 +51,7 @@ function StudentForm() {
         <form className="foorm" onSubmit={studentFormHandler}>
             <h2>Enter Student Rating</h2>
             <RatingSelector theRating = {(x)=> setClassRating(x)}/>
-            <div className="form-group">
+            <div className="input-group">
                 <input onChange={textHandler} type="text" value={text} placeholder="Enter your content"/>
                 <MainButton isDisabled={isDisabled} buttonClass={btn}>Post Am</MainButton>
             </div>
