@@ -20,6 +20,7 @@ export const StudentProvider = ({children})=>{
 
     const studentAdd = (myObj)=>{
         myObj.id = v4();
+        console.log(myObj);
         setStudent([myObj, ...student])
     }
 

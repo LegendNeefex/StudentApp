@@ -13,7 +13,7 @@ function StudentForm() {
     const [valMessage, setValMessage] = useState("")
     const [btn, setBtnClass] = useState('btn-disabled')
 
-    const {studentAdd} = useContext(StudentContext)
+    const {studentAdd} = useContext (StudentContext)
 
     const textHandler = (e)=>{
         if (text === "") {
