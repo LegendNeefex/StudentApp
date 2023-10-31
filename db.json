@@ -1,0 +1,19 @@
+{
+    "students": [
+      {
+        "fullName": "Adewale Ayomide Samson",
+        "classRating": 6,
+        "id": "3662a649-73d8-40f8-ae28-0db62d0fab66"
+      },
+      {
+        "fullName": "Muhammed Danjuma",
+        "classRating": 5,
+        "id": "38ebd886-b7d4-40b5-b7fd-f6aba37b4484"
+      },
+      {
+        "fullName": "Muhammed Danjuma",
+        "classRating": 5,
+        "id": "ca69bea0-911f-40ed-8e47-a839114d8b70"
+      }
+    ]
+  }
