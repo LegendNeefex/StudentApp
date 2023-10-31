@@ -15,7 +15,7 @@ function StudentsSummary() {
     const avgg = avg.toFixed(2)
 
   return (
-    <div className="name">
+    <div className="names">
         <h4>{student.length} Student Enteries</h4>
         <h4>{isNaN(avgg)? 0 : avgg} Student Average Attendance Score</h4>
     </div>

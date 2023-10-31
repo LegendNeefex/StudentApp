@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import Card from "./shared/Card"
 import MainButton from "./shared/MainButton"
 import RatingSelector from "./components/RatingSelector"
@@ -7,72 +7,58 @@ import { useContext } from "react"
 import { v4 } from "uuid"
 
 function StudentForm() {
-
     const [text, setText] = useState("")
     const [isDisabled, setIsDisabled] = useState(true) 
     const [ClassRating, setClassRating] = useState ()
     const [valMessage, setValMessage] = useState("")
-    
-    const {studentAdd, itemEdit, updateStudentHandler} = useContext (StudentContext)
-    
-    useEffect(()=>{
-        setText(itemEdit.item.fullName)
-        setIsDisabled(false)
-    },[itemEdit])
-    
+    const [btn, setBtnClass] = useState('btn-disabled')
+
+    const {studentAdd} = useContext (StudentContext)
+
     const textHandler = (e)=>{
         if (text === "") {
             setIsDisabled(true)
             setValMessage(null)
-        }else if (text !== "" && text.trim().length <= 7) {
+            setBtnClass('btn-disabled')
+        }else if (text !== "" && text.trim().length <= 15) {
             setIsDisabled(true)
-            setValMessage("Character is less than 7")
+            setValMessage("Character is less than 15")
+            setBtnClass('btn-disabled')
+            
         }else{
             setIsDisabled(false)
             setValMessage(null)
+            setBtnClass(null)
         }
         setText(e.target.value);
     }
-    
+
     const studentFormHandler = (e)=>{
         e.preventDefault();
-        
+
         const myObj = {
             fullName: text,
             classRating: ClassRating,
             id: v4()
         }
 
-        if (text === "") {
-            setIsDisabled(true)
-            setValMessage("Sorry, content can't be empty")
-        }else if (ClassRating === "") {
-            setValMessage("Please confirm/include a rating.")
-            setText(text)
-            setIsDisabled(true)
-        }else if (itemEdit.editMode === true) {
-            updateStudentHandler(itemEdit.item.id, myObj)
-            setText("")
-        }else{
-            studentAdd(myObj)
-            setText("")
-        }
-
+        studentAdd(myObj)
+        setText("")
     }
-    
-  return <div className="container" >
+
+  return (
     <Card>
-        <form onSubmit={studentFormHandler} className="card">
+        <form className="foorm" onSubmit={studentFormHandler}>
             <h2>Enter Student Rating</h2>
-            <RatingSelector theRating = {(x)=> setClassRating(x)} className="rating" />
+            <RatingSelector theRating = {(x)=> setClassRating(x)}/>
             <div className="input-group">
-                <input onChange={textHandler} type="text" value={text ?? ''} placeholder="Enter your content"/>
-                <MainButton isDisabled={isDisabled}>Post Am</MainButton>
+                <input onChange={textHandler} type="text" value={text} placeholder="Enter your content"/>
+                <MainButton isDisabled={isDisabled} buttonClass={btn}>Post Am</MainButton>
             </div>
             {valMessage ? <div>{valMessage}</div> : null}
         </form>
     </Card>
-    </div>
+  )
 }
 
 export default StudentForm

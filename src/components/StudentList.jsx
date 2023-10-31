@@ -8,7 +8,7 @@ function StudentList() {
     return (
         <>
             {student.map((item)=>(
-                <Students deleteHandler={deleteHandler} key={item.id} item = {item}/>
+                <Students deleteHandler={deleteHandler} key={item.id} clash = {item}/>
                 // <h2>okay</h2>
             ))}
         </>
