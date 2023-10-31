@@ -1,7 +1,15 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import { useContext } from "react"
+import StudentContext from "../context/StudentContext"
 
 function RatingSelector({theRating}) {
     const [selected, SetSelected] = useState ()
+    const {itemEdit} = useContext(StudentContext)
+
+    useEffect(()=>{
+      SetSelected(itemEdit.item.classRating)
+      theRating(itemEdit.item.classRating)
+    },[itemEdit])
 
     const selectHandler = (e)=>{
         SetSelected(Number(e.target.value))

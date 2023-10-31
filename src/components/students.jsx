@@ -1,20 +1,30 @@
 import Card from "../shared/Card"
-import { AiFillCloseCircle } from "react-icons/ai";
+import { FaEdit, FaTimesCircle } from "react-icons/fa"; 
+import { useContext } from "react";
+import StudentContext from "../context/StudentContext";
 
 
 
-function Students({clash, deleteHandler}) {
-    return(
+function Students({item, deleteHandler}) {
+
+    const {editStudentHandler} = useContext(StudentContext)
+
+    return <div className="container">
         <Card reverse = {true}>
-            {/* <div className="not">{clash.id}</div> */}
-            <div className="okay">{clash.fullName}</div>
-            <div className="what">{clash.classRating}</div>
-            <button className="btn-danger" onClick={()=> deleteHandler(clash.id, clash.FullName)}>
-                <AiFillCloseCircle color="red" size={"15px"}/>
-                Delete
-            </button>
+           <div className="card">
+                {/* <div className="not">{clash.id}</div> */}
+                <div>{item.fullName}</div>
+                <div>{item.classRating}</div>
+                <button className="close" onClick={()=> deleteHandler(item.id, item.FullName)}>
+                    <FaTimesCircle color="red" size={"20px"}/>
+                </button>
+                <button className="edit" onClick={()=>{editStudentHandler(item)}}>
+                    <FaEdit color="black" size={"20px"}/>
+                </button>
+           </div>
         </Card>
-    )
+    </div>
+        
 }
 
 export default Students;

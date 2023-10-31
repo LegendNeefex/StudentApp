@@ -62,6 +62,10 @@ header {
   margin-bottom: 30px;
 }
 
+.name h4{
+  text-align: center;
+}
+
 .card {
   background-color: #fff;
   color: #333;
@@ -281,7 +285,7 @@ input:focus {
 }
 
 
-.myCard{
+/* .myCard{
     display: flex;
     justify-content: space-around;
     background-color: #fff;
@@ -335,6 +339,7 @@ input:focus {
     font-size:20px;
     border: 0;
     padding: 5px 30px;  
+    cursor: pointer;
     border-radius: 20px;
 }
-
+ */
